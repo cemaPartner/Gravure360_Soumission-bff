@@ -9,17 +9,26 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
+    private String email;
     private String passwordHash;
 
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
 
-    public User(String username, String passwordHash, Role role) {
-        this.username = username;
+    private String firstName;
+    private String lastName;
+    private String company;
+    private String phone;
+
+    public User(String email, String passwordHash, Role role, String firstName, String lastName, String company, String phone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
         this.passwordHash = passwordHash;
         this.role = role;
+        this.company = company;
+        this.phone = phone;
     }
 
     public User() {
@@ -33,12 +42,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPasswordHash() {
@@ -57,5 +66,35 @@ public class User {
         this.role = role;
     }
 
-    // Getters and setters
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 }

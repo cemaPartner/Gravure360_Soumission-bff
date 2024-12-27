@@ -29,7 +29,7 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@RequestBody LoginRequest request) {
         User user = authService.login(request.getUsername(), request.getPassword());
-        return new ResponseEntity<>(new JwtResponse(jwtUtil.generateToken(user.getUsername(), user.getRole().getName())), HttpStatus.OK);
+        return new ResponseEntity<>(new JwtResponse(jwtUtil.generateToken(user)), HttpStatus.OK);
     }
 
     @PostMapping("/register")

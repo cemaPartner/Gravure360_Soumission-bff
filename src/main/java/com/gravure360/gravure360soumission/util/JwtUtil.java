@@ -1,5 +1,6 @@
 package com.gravure360.gravure360soumission.util;
 
+import com.gravure360.gravure360soumission.model.auth.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -20,14 +21,19 @@ public class JwtUtil {
 
     /**
      * Generates a JWT token with a subject (username) and role claim.
-     * @param username The username for which the token is generated.
+     * @param email The username for which the token is generated.
      * @param role The role associated with the user.
      * @return A JWT token.
      */
-    public String generateToken(String username, String role) {
+    public String generateToken(User user) {
         return Jwts.builder()
-                .setSubject(username)
-                .claim("role", role)
+                .claim("email", user.getEmail())
+                .claim("id", user.getId())
+                .claim("role", user.getRole())
+                .claim("firstName", user.getFirstName())
+                .claim("lastName", user.getLastName())
+                .claim("company", user.getCompany())
+                .claim("phone", user.getPhone())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
                 .signWith(SignatureAlgorithm.HS256, secretKey)

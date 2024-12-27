@@ -20,9 +20,9 @@ public class AuthService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public User register(String username, String password, String roleName) {
+    public User register(String email, String password, String roleName) {
         User user = new User();
-        user.setUsername(username);
+        user.setEmail(email);
         user.setPasswordHash(passwordEncoder.encode(password));
 
         Role role = roleRepository.findByName(roleName);
@@ -34,8 +34,8 @@ public class AuthService {
         return userRepository.save(user);
     }
 
-    public User login(String username, String password) {
-        User user = userRepository.findByUsername(username);
+    public User login(String email, String password) {
+        User user = userRepository.findByEmail(email);
         if (user == null || !passwordEncoder.matches(password, user.getPasswordHash())) {
             throw new RuntimeException("Invalid username or password");
         }
