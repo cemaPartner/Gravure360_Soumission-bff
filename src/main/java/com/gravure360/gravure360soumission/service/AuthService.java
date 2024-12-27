@@ -2,6 +2,7 @@ package com.gravure360.gravure360soumission.service;
 
 import com.gravure360.gravure360soumission.gateway.RoleRepository;
 import com.gravure360.gravure360soumission.gateway.UserRepository;
+import com.gravure360.gravure360soumission.model.auth.RegisterRequest;
 import com.gravure360.gravure360soumission.model.auth.Role;
 import com.gravure360.gravure360soumission.model.auth.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,16 @@ public class AuthService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public User register(String email, String password, String roleName) {
+    public User register(RegisterRequest request) {
         User user = new User();
-        user.setEmail(email);
-        user.setPasswordHash(passwordEncoder.encode(password));
+        user.setFirstName(request.getFirstName());
+        user.setLastName(request.getLastName());
+        user.setCompany(request.getCompany());
+        user.setEmail(request.getEmail());
+        user.setPhone(request.getPhone());
+        user.setPasswordHash(passwordEncoder.encode(request.getPasswordHash()));
 
-        Role role = roleRepository.findByName(roleName);
+        Role role = roleRepository.findByName("User");
         if (role == null) {
             throw new RuntimeException("Role not found");
         }
