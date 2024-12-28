@@ -9,8 +9,11 @@ import jakarta.persistence.Table;
 public class Material {
     @Id
     private String name;
+    private String brand;
     private int height;
     private int width;
+    private String backgroundColor;
+    private String engravingColor;
     private int thickness;
     private int price;
     private boolean adhesive;
@@ -19,10 +22,13 @@ public class Material {
     public Material() {
     }
 
-    public Material(String name, int height, int width, int thickness, int price, boolean adhesive, int stock) {
+    public Material(String name, String brand, int height, int width, String backgroundColor, String engravingColor, int thickness, int price, boolean adhesive, int stock) {
         this.name = name;
+        this.brand = brand;
         this.height = height;
         this.width = width;
+        this.backgroundColor = backgroundColor;
+        this.engravingColor = engravingColor;
         this.thickness = thickness;
         this.price = price;
         this.adhesive = adhesive;
@@ -84,5 +90,29 @@ public class Material {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
+    public String getEngravingColor() {
+        return engravingColor;
+    }
+
+    public void setEngravingColor(String engravingColor) {
+        this.engravingColor = engravingColor;
     }
 }
