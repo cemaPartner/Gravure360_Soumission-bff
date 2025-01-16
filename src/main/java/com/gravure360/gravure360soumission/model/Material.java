@@ -12,8 +12,8 @@ public class Material {
     private String brand;
     private int height;
     private int width;
-    private String backgroundColor;
-    private String engravingColor;
+    private int backgroundColorId;
+    private int engravingColorId;
     private int thickness;
     private int price;
     private boolean adhesive;
@@ -22,13 +22,13 @@ public class Material {
     public Material() {
     }
 
-    public Material(String name, String brand, int height, int width, String backgroundColor, String engravingColor, int thickness, int price, boolean adhesive, int stock) {
+    public Material(String name, String brand, int height, int width, int backgroundColorId, int engravingColorId, int thickness, int price, boolean adhesive, int stock) {
         this.name = name;
         this.brand = brand;
         this.height = height;
         this.width = width;
-        this.backgroundColor = backgroundColor;
-        this.engravingColor = engravingColor;
+        this.backgroundColorId = backgroundColorId;
+        this.engravingColorId = engravingColorId;
         this.thickness = thickness;
         this.price = price;
         this.adhesive = adhesive;
@@ -100,19 +100,19 @@ public class Material {
         this.brand = brand;
     }
 
-    public String getBackgroundColor() {
-        return backgroundColor;
+    public int getBackgroundColorId() {
+        return backgroundColorId;
     }
 
-    public void setBackgroundColor(String backgroundColor) {
-        this.backgroundColor = backgroundColor;
+    public void setBackgroundColorId(int backgroundColorId) {
+        this.backgroundColorId = backgroundColorId;
     }
 
-    public String getEngravingColor() {
-        return engravingColor;
+    public int getEngravingColorId() {
+        return engravingColorId;
     }
 
-    public void setEngravingColor(String engravingColor) {
-        this.engravingColor = engravingColor;
+    public void setEngravingColor(int engravingColorId) {
+        this.engravingColorId = engravingColorId;
     }
 }
