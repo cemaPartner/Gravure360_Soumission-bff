@@ -23,16 +23,11 @@ public class QuoteItemControlller {
         this.quoteItemGateway = quoteItemGateway;
     }
 
-    @GetMapping("/get")
-    public List<QuoteItem> getQuotesItems() {
-        return quoteItemGateway.findAll();
-    }
-
     @PostMapping("/add")
     public ResponseEntity<List<QuoteItem>> addQuoteItem(@RequestBody QuoteItem quoteItem) {
         quoteItemGateway.save(quoteItem);
 
-        return new ResponseEntity<>(quoteItemGateway.findAll(), HttpStatus.CREATED);
+        return new ResponseEntity<>(quoteItemService.findItemsByQuoteId(Long.valueOf(quoteItem.getQuoteId())), HttpStatus.CREATED);
     }
 
     @GetMapping("/{quoteId}")
