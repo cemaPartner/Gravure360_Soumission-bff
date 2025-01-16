@@ -1,8 +1,6 @@
 package com.gravure360.gravure360soumission.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -10,6 +8,7 @@ import java.util.Date;
 @Table(name = "quote")
 public class Quote {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String description;

@@ -1,25 +1,26 @@
 package com.gravure360.gravure360soumission.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "color")
 public class Color {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nameFr;
     private String nameEn;
+    private String texture;
     private String hex;
 
     public Color() {
     }
 
-    public Color(int id, String nameFr, String nameEn, String hex) {
+    public Color(int id, String nameFr, String nameEn, String texture, String hex) {
         this.id = id;
         this.nameFr = nameFr;
         this.nameEn = nameEn;
+        this.texture = texture;
         this.hex = hex;
     }
 
@@ -53,5 +54,13 @@ public class Color {
 
     public void setNameEn(String nameEn) {
         this.nameEn = nameEn;
+    }
+
+    public String getTexture() {
+        return texture;
+    }
+
+    public void setTexture(String texture) {
+        this.texture = texture;
     }
 }
