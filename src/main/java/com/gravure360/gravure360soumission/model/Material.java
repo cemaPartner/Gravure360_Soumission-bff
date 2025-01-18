@@ -12,8 +12,8 @@ public class Material {
     private String brand;
     private int height;
     private int width;
-    private int backgroundColorId;
-    private int engravingColorId;
+    private String backgroundColorHex;
+    private String engravingColorHex;
     private int thickness;
     private int price;
     private boolean adhesive;
@@ -22,13 +22,13 @@ public class Material {
     public Material() {
     }
 
-    public Material(String name, String brand, int height, int width, int backgroundColorId, int engravingColorId, int thickness, int price, boolean adhesive, int stock) {
+    public Material(String name, String brand, int height, int width, String backgroundColorHex, String engravingColorHex, int thickness, int price, boolean adhesive, int stock) {
         this.name = name;
         this.brand = brand;
         this.height = height;
         this.width = width;
-        this.backgroundColorId = backgroundColorId;
-        this.engravingColorId = engravingColorId;
+        this.backgroundColorHex = backgroundColorHex;
+        this.engravingColorHex = engravingColorHex;
         this.thickness = thickness;
         this.price = price;
         this.adhesive = adhesive;
@@ -100,19 +100,19 @@ public class Material {
         this.brand = brand;
     }
 
-    public int getBackgroundColorId() {
-        return backgroundColorId;
+    public String getBackgroundColorHex() {
+        return backgroundColorHex;
     }
 
-    public void setBackgroundColorId(int backgroundColorId) {
-        this.backgroundColorId = backgroundColorId;
+    public void setBackgroundColorHex(String backgroundColorHex) {
+        this.backgroundColorHex = backgroundColorHex;
     }
 
-    public int getEngravingColorId() {
-        return engravingColorId;
+    public String getEngravingColorHex() {
+        return engravingColorHex;
     }
 
-    public void setEngravingColor(int engravingColorId) {
-        this.engravingColorId = engravingColorId;
+    public void setEngravingColorHex(String engravingColorHex) {
+        this.engravingColorHex = engravingColorHex;
     }
 }
